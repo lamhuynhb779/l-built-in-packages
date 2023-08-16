@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+static $values = [];
+
+Route::get('/static', function () use (&$values) {
+    $values[] = time();
+    dd($values);
 });
